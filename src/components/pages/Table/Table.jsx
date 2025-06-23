@@ -54,6 +54,28 @@ export default function Table() {
       setBill(table.bill);
     }
   }, [table]);
+  useEffect(() => {
+    const peopleNumber = parseInt(people);
+    const maxPeopleNumber = parseInt(maxPeople);
+
+    if (peopleNumber > maxPeopleNumber) {
+      setPeople(maxPeopleNumber);
+    }
+  }, [people, maxPeople]);
+
+  useEffect(() => {
+    if (status !== 'Busy') {
+      setBill(0);
+    }
+  }, [status]);
+
+  useEffect(() => {
+    if (status === 'Free' || status === 'Cleaning') {
+      setPeople('0');
+      setBill('0');
+    }
+  }, [status]);
+
   return (
     <Container className='bg-white p-4 mt-4 rounded shadow'>
       <h1 className='mb-4'>Table {table.id}</h1>
@@ -82,14 +104,18 @@ export default function Table() {
             />
           </div>
         </div>
-        <div className='mb-4 d-flex align-items-center'>
-          <Label>Bill: </Label>
-          <Span>$</Span>
-          <Input value={bill} onChange={(e) => setBill(e.target.value)} />
-        </div>
-        <div className='mt-4'>
-          <Button>Update</Button>
-        </div>
+        {status === 'Busy' && (
+          <>
+            <div className='mb-4 d-flex align-items-center'>
+              <Label>Bill: </Label>
+              <Span>$</Span>
+              <Input value={bill} onChange={(e) => setBill(e.target.value)} />
+            </div>
+            <div className='mt-4'>
+              <Button>Update</Button>
+            </div>
+          </>
+        )}
       </form>
     </Container>
   );

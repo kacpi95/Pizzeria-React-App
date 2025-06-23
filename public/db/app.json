@@ -2,15 +2,15 @@
   "tables": [
     {
       "id": "1",
-      "status": "Cleaning",
+      "status": "Busy",
       "peopleAmount": "4",
       "maxPeopleAmount": "4",
-      "bill": "20"
+      "bill": 0
     },
     {
       "id": "2",
-      "status": "Free",
-      "peopleAmount": 0,
+      "status": "Cleaning",
+      "peopleAmount": "10",
       "maxPeopleAmount": 3,
       "bill": 0
     },
