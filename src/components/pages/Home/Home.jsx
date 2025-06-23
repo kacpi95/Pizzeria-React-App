@@ -1,20 +1,23 @@
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Title from '../../common/Title/Title';
 import { useEffect, useState } from 'react';
 import List from '../../List/List';
+import { useDispatch, useSelector } from 'react-redux';
+import { setTables } from '../../../redux/tablesRedux';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
+  const tables = useSelector((state) => state.tables);
 
   useEffect(() => {
     fetch('http://localhost:3131/tables')
       .then((res) => res.json())
-      .then((res) => {
-        setData(res);
+      .then((tables) => {
+        dispatch(setTables(tables));
         setIsLoading(false);
       });
-  }, []);
+  }, [dispatch]);
 
   if (isLoading) {
     return <p>Ładowanie...</p>;
@@ -23,7 +26,7 @@ export default function Home() {
   return (
     <Container className='bg-white p-4 mt-4 rounded shadow'>
       <Title>All tables</Title>
-      <List data={data} />
+      <List data={tables} />
     </Container>
   );
 }

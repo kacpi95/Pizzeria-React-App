@@ -3,11 +3,17 @@ import Button from '../../common/Button/Button';
 import Input from '../../common/Input/Input';
 import Label from '../../common/Label/Label';
 import Span from '../../common/Span/Span';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function Table() {
+  const { id } = useParams();
+  const table = useSelector((state) =>
+    state.tables.find((table) => table.id === id)
+  );
   return (
     <Container className='bg-white p-4 mt-4 rounded shadow'>
-      <h1 className='mb-4'>Table 1</h1>
+      <h1 className='mb-4'>Table {table.id}</h1>
       <form>
         <div className='mb-4 d-flex align-items-center'>
           <Label>Status: </Label>

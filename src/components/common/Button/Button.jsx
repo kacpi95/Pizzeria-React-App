@@ -1,5 +1,7 @@
-export default function Button({ children }) {
+export default function Button({ children, onClick }) {
   return (
-    <button className='bg-primary rounded text-white btn'>{children}</button>
+    <button onClick={onClick} className='bg-primary rounded text-white btn'>
+      {children}
+    </button>
   );
 }
