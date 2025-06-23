@@ -14,4 +14,6 @@ const tableSlice = createSlice({
 });
 
 export const { addTables, setTables } = tableSlice.actions;
+export const getTables = (state, id) =>
+  state.tables.find((table) => table.id === id);
 export default tableSlice.reducer;

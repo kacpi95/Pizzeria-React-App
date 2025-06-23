@@ -5,19 +5,38 @@ import Label from '../../common/Label/Label';
 import Span from '../../common/Span/Span';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { getTables } from '../../../redux/tablesRedux';
+import { useEffect, useState } from 'react';
 
 export default function Table() {
   const { id } = useParams();
-  const table = useSelector((state) =>
-    state.tables.find((table) => table.id === id)
-  );
+  const table = useSelector((state) => getTables(state, id));
+
+  const [status, setStatus] = useState('');
+  const [people, setPeople] = useState('');
+  const [maxPeople, setMaxPeople] = useState('');
+  const [bill, setBill] = useState('');
+
+  useEffect(() => {
+    if (table) {
+      setStatus(table.status);
+      setPeople(table.peopleAmount);
+      setMaxPeople(table.maxPeopleAmount);
+      setBill(table.bill);
+    }
+  }, [table]);
   return (
     <Container className='bg-white p-4 mt-4 rounded shadow'>
       <h1 className='mb-4'>Table {table.id}</h1>
       <form>
         <div className='mb-4 d-flex align-items-center'>
           <Label>Status: </Label>
-          <select id='status' className='form-select w-auto'>
+          <select
+            id='status'
+            className='form-select w-auto'
+            value={status}
+            onChange={(e) => setStatus(e.target.value)}
+          >
             <option value='Busy'>Busy</option>
             <option value='Free'>Free</option>
             <option value='Cleaning'>Cleaning</option>
@@ -26,15 +45,18 @@ export default function Table() {
         <div className='d-flex mb-4'>
           <Label>People: </Label>
           <div className='d-flex align-items-center gap-2'>
-            <Input />
+            <Input value={people} onChange={(e) => setPeople(e.target.value)} />
             <Span>/</Span>
-            <Input />
+            <Input
+              value={maxPeople}
+              onChange={(e) => setMaxPeople(e.target.value)}
+            />
           </div>
         </div>
         <div className='mb-4 d-flex align-items-center'>
           <Label>Bill: </Label>
           <Span>$</Span>
-          <Input />
+          <Input value={bill} onChange={(e) => setBill(e.target.value)} />
         </div>
         <div className='mt-4'>
           <Button>Update</Button>
