@@ -5,10 +5,14 @@ import Label from '../../common/Label/Label';
 import Span from '../../common/Span/Span';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getTables } from '../../../redux/tablesRedux';
+import { getTables, updateTable } from '../../../redux/tablesRedux';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export default function Table() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
   const table = useSelector((state) => getTables(state, id));
 
@@ -16,6 +20,31 @@ export default function Table() {
   const [people, setPeople] = useState('');
   const [maxPeople, setMaxPeople] = useState('');
   const [bill, setBill] = useState('');
+
+  function handleChangeData(e) {
+    e.preventDefault();
+
+    fetch(`http://localhost:3131/tables/${table.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        status,
+        peopleAmount: people,
+        maxPeopleAmount: maxPeople,
+        bill,
+      }),
+    })
+      .then((res) => res.json())
+      .then((updatedTable) => {
+        dispatch(updateTable(updatedTable));
+        navigate('/');
+      })
+      .catch((err) => {
+        console.error('Błąd podczas aktualizacji:', err);
+      });
+  }
 
   useEffect(() => {
     if (table) {
@@ -28,7 +57,7 @@ export default function Table() {
   return (
     <Container className='bg-white p-4 mt-4 rounded shadow'>
       <h1 className='mb-4'>Table {table.id}</h1>
-      <form>
+      <form onSubmit={handleChangeData}>
         <div className='mb-4 d-flex align-items-center'>
           <Label>Status: </Label>
           <select
