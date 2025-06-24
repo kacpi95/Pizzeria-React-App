@@ -1,5 +1,5 @@
 import { Row, Col } from 'react-bootstrap';
-import Button from '../common/Button/Button';
+import Button from '../../common/Button/Button';
 import { useNavigate } from 'react-router-dom';
 
 export default function Item({ id, status }) {

@@ -3,15 +3,15 @@
     {
       "id": "1",
       "status": "Busy",
-      "peopleAmount": "4",
-      "maxPeopleAmount": "4",
+      "peopleAmount": "5",
+      "maxPeopleAmount": "10",
       "bill": 0
     },
     {
       "id": "2",
-      "status": "Cleaning",
-      "peopleAmount": "10",
-      "maxPeopleAmount": 3,
+      "status": "Busy",
+      "peopleAmount": "3",
+      "maxPeopleAmount": "4",
       "bill": 0
     },
     {

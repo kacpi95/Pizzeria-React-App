@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap';
 import Title from '../../common/Title/Title';
 import { useEffect, useState } from 'react';
-import List from '../../List/List';
+import List from '../../features/List/List';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTables } from '../../../redux/tablesRedux';
 
