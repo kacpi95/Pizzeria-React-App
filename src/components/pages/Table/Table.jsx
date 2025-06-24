@@ -11,6 +11,7 @@ import useTableForm from '../../hooks/useTableForm';
 export default function Table() {
   const { id } = useParams();
   const table = useSelector((state) => getTables(state, id));
+
   const {
     status,
     setStatus,
@@ -23,26 +24,24 @@ export default function Table() {
     handleChangeData,
   } = useTableForm(table);
 
-  if (!table) return <p>Loading...</p>;
   return (
     <Container className='bg-white p-4 mt-4 rounded shadow'>
       <h1 className='mb-4'>Table {table.id}</h1>
       <form onSubmit={handleChangeData}>
-        <TableStatusSelect onChange={(e) => setStatus(e.target.value)} />
+        <TableStatusSelect
+          status={status}
+          onChange={(e) => setStatus(e.target.value)}
+        />
         <PeopleInput
           people={people}
           setPeople={setPeople}
           maxPeople={maxPeople}
           setMaxPeople={setMaxPeople}
         />
-        {status === 'Busy' && (
-          <>
-            <BillInput bill={bill} setBill={setBill} />
-            <div className='mt-4'>
-              <Button>Update</Button>
-            </div>
-          </>
-        )}
+        {status === 'Busy' && <BillInput bill={bill} setBill={setBill} />}
+        <div className='mt-4'>
+          <Button>Update</Button>
+        </div>
       </form>
     </Container>
   );

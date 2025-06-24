@@ -13,7 +13,7 @@ export default function useTableForm(table) {
   const [bill, setBill] = useState('');
 
   useEffect(() => {
-    if (table) {
+    if (table && table.id) {
       setStatus(table.status);
       setPeople(table.peopleAmount);
       setMaxPeople(table.maxPeopleAmount);
@@ -30,21 +30,21 @@ export default function useTableForm(table) {
     }
   }, [people, maxPeople]);
 
-  useEffect(() => {
-    if (status !== 'Busy') {
-      setBill(0);
-    }
-  }, [status]);
-
-  useEffect(() => {
-    if (status === 'Free' || status === 'Cleaning') {
-      setPeople('0');
-      setBill('0');
-    }
-  }, [status]);
-
   function handleChangeData(e) {
     e.preventDefault();
+    const payload = {
+      status,
+      peopleAmount: people,
+      maxPeopleAmount: maxPeople,
+      bill: bill,
+    };
+
+    if (status !== 'Busy') {
+      payload.bill = '0';
+    }
+    if (status === 'Free' || status === 'Cleaning') {
+      payload.peopleAmount = '0';
+    }
 
     fetch(`http://localhost:3131/tables/${table.id}`, {
       method: 'PATCH',

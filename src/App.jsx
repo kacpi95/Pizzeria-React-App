@@ -5,6 +5,7 @@ import Table from './components/pages/Table/Table';
 import Header from './components/views/Header/Header';
 import Footer from './components/views/Footer/Footer';
 import { Container } from 'react-bootstrap';
+import AddTable from './components/pages/AddTable/AddTable';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/table/:id' element={<Table />} />
         <Route path='*' element={<NoPage />} />
+        <Route path='/addTable' element={<AddTable />} />
       </Routes>
       <Footer />
     </Container>
