@@ -9,7 +9,8 @@
     "dev:server": "json-server --port 3131 --watch public/db/app.json ",
     "build": "vite build && mkdir -p dist/db && cp public/db/app.json dist/db/app.json",
     "start": "node server.mjs",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.2.2",

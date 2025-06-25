@@ -2,7 +2,7 @@
   "tables": [
     {
       "id": "1",
-      "status": "Cleaning",
+      "status": "Busy",
       "peopleAmount": "7",
       "maxPeopleAmount": "10",
       "bill": "2"
