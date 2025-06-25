@@ -22,41 +22,6 @@
       "bill": "0"
     },
     {
-      "id": "4",
-      "status": "Busy",
-      "peopleAmount": "2",
-      "maxPeopleAmount": "5",
-      "bill": "2"
-    },
-    {
-      "id": "jm-wIBnGC",
-      "status": "Busy",
-      "peopleAmount": "4",
-      "maxPeopleAmount": "10",
-      "bill": "4"
-    },
-    {
-      "id": "ZsVdQdfKB",
-      "status": "Free",
-      "peopleAmount": "0",
-      "maxPeopleAmount": "10",
-      "bill": "0"
-    },
-    {
-      "id": "ea8f",
-      "status": "Busy",
-      "peopleAmount": "2",
-      "maxPeopleAmount": "10",
-      "bill": "0"
-    },
-    {
-      "id": "f153",
-      "status": "Free",
-      "peopleAmount": "0",
-      "maxPeopleAmount": "10",
-      "bill": "0"
-    },
-    {
       "id": 5,
       "status": "Free",
       "peopleAmount": "0",
@@ -78,9 +43,9 @@
       "bill": "0"
     },
     {
-      "id": "8",
+      "id": "9",
       "status": "Busy",
-      "peopleAmount": "5",
+      "peopleAmount": "4",
       "maxPeopleAmount": "10",
       "bill": "4"
     }

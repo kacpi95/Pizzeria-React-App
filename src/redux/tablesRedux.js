@@ -25,10 +25,14 @@ const tableSlice = createSlice({
           : table
       );
     },
+    removeTable: (state, action) => {
+      return state.filter((tab) => tab.id !== action.payload);
+    },
   },
 });
 
-export const { addTables, setTables, updateTable } = tableSlice.actions;
+export const { addTables, setTables, updateTable, removeTable } =
+  tableSlice.actions;
 
 export const getTables = (state, id) =>
   state.tables.find((table) => table.id.toString() === id);
