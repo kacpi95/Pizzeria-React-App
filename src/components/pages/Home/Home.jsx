@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setTables } from '../../../redux/tablesRedux';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../common/Button/Button';
+import { API_URL } from '../../../config';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -14,7 +15,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3131/tables')
+    fetch(`${API_URL}`)
       .then((res) => res.json())
       .then((tables) => {
         dispatch(setTables(tables));

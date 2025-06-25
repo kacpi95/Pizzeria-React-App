@@ -3,6 +3,7 @@ import Button from '../../common/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTables } from '../../../redux/tablesRedux';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../../config';
 
 export default function AddTable() {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ export default function AddTable() {
       bill: '0',
     };
 
-    fetch('http://localhost:3131/tables', {
+    fetch(`${API_URL}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -3,6 +3,7 @@ import Button from '../../common/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { removeTable } from '../../../redux/tablesRedux';
+import { API_URL } from '../../../config';
 
 export default function Item({ id, status }) {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function Item({ id, status }) {
   }
 
   function handleRemove() {
-    fetch(`http://localhost:3131/tables/${id}`, {
+    fetch(`${API_URL}/${id}`, {
       method: 'DELETE',
     })
       .then(() => {

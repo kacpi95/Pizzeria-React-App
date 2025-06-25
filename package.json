@@ -7,7 +7,8 @@
     "dev": "npm-run-all -p dev:*",
     "dev:react": "vite",
     "dev:server": "json-server --port 3131 --watch public/db/app.json ",
-    "build": "vite build",
+    "build": "vite build && mkdir -p dist/db && cp public/db/app.json dist/db/app.json",
+    "start": "node server.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateTable } from '../../redux/tablesRedux';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config';
 
 export default function useTableForm(table) {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ export default function useTableForm(table) {
       payload.peopleAmount = '0';
     }
 
-    fetch(`http://localhost:3131/tables/${table.id}`, {
+    fetch(`${API_URL}/${table.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
