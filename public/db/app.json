@@ -3,30 +3,86 @@
     {
       "id": "1",
       "status": "Free",
-      "peopleAmount": "9",
+      "peopleAmount": "5",
       "maxPeopleAmount": "10",
       "bill": "7"
     },
     {
       "id": "2",
-      "status": "Cleaning",
-      "peopleAmount": "0",
+      "status": "Busy",
+      "peopleAmount": "3",
       "maxPeopleAmount": "3",
-      "bill": "0"
+      "bill": "3"
     },
     {
       "id": "3",
-      "status": "Free",
+      "status": "Cleaning",
       "peopleAmount": "4",
       "maxPeopleAmount": "5",
       "bill": "0"
     },
     {
       "id": "4",
-      "status": "Cleaning",
-      "peopleAmount": "0",
+      "status": "Busy",
+      "peopleAmount": "2",
       "maxPeopleAmount": "5",
+      "bill": "2"
+    },
+    {
+      "id": "jm-wIBnGC",
+      "status": "Busy",
+      "peopleAmount": "4",
+      "maxPeopleAmount": "10",
+      "bill": "4"
+    },
+    {
+      "id": "ZsVdQdfKB",
+      "status": "Free",
+      "peopleAmount": "0",
+      "maxPeopleAmount": "10",
       "bill": "0"
+    },
+    {
+      "id": "ea8f",
+      "status": "Busy",
+      "peopleAmount": "2",
+      "maxPeopleAmount": "10",
+      "bill": "0"
+    },
+    {
+      "id": "f153",
+      "status": "Free",
+      "peopleAmount": "0",
+      "maxPeopleAmount": "10",
+      "bill": "0"
+    },
+    {
+      "id": 5,
+      "status": "Free",
+      "peopleAmount": "0",
+      "maxPeopleAmount": "10",
+      "bill": "0"
+    },
+    {
+      "id": 6,
+      "status": "Free",
+      "peopleAmount": "0",
+      "maxPeopleAmount": "10",
+      "bill": "0"
+    },
+    {
+      "id": 7,
+      "status": "Free",
+      "peopleAmount": "0",
+      "maxPeopleAmount": "10",
+      "bill": "0"
+    },
+    {
+      "id": "8",
+      "status": "Busy",
+      "peopleAmount": "5",
+      "maxPeopleAmount": "10",
+      "bill": "4"
     }
   ]
 }
